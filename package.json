@@ -1,0 +1,28 @@
+{
+  "name": "twitter-genie-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.15.19",
+    "axios": "^1.9.0",
+    "chalk": "^4.1.2",
+    "commander": "^14.0.0",
+    "dotenv": "^16.5.0",
+    "https-proxy-agent": "^7.0.6",
+    "inquirer": "^12.6.1",
+    "openai": "^4.100.0",
+    "ts-node": "^10.9.2",
+    "twitter-api-v2": "^1.23.2",
+    "typescript": "^5.8.3"
+  },
+  "bin": {
+    "twitter-genie": "./bin/index.ts"
+  }
+}
