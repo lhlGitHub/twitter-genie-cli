@@ -27,7 +27,7 @@
 1. 克隆此仓库：
 
    ```bash
-   git clone https://github.com/yourusername/twitter-genie-cli.git
+   git clone https://github.com/lhlGitHub/twitter-genie-cli
    cd twitter-genie-cli
    ```
 
