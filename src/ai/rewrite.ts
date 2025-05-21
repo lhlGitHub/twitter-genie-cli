@@ -20,6 +20,5 @@ export async function rewriteTweet(tweet: string): Promise<string> {
       { role: "user", content: tweet },
     ],
   });
-  console.log("completion", completion);
   return completion.choices[0].message?.content?.trim() || "";
 }

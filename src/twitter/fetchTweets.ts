@@ -1,30 +1,11 @@
-import { TwitterApi } from "twitter-api-v2";
-import { HttpsProxyAgent } from "https-proxy-agent";
-import { env } from "../config/env";
-
-// 创建代理agent（如果配置了代理）
-const proxyAgent = env.httpProxy
-  ? new HttpsProxyAgent(env.httpProxy)
-  : undefined;
-
-// 初始化Twitter客户端
-const client = new TwitterApi(
-  {
-    appKey: env.twitterAppKey,
-    appSecret: env.twitterAppSecret,
-    accessToken: env.twitterAccessToken,
-    accessSecret: env.twitterAccessSecret,
-  },
-  // 代理配置
-  { httpAgent: proxyAgent }
-);
+import { twitterClientV2 } from "../utils/twitterClient";
 
 export async function fetchLatestTweets(username: string) {
   try {
     console.log("正在获取用户信息...");
 
     // 1. 获取用户信息
-    const user = await client.v2.userByUsername(username, {
+    const user = await twitterClientV2.userByUsername(username, {
       "user.fields": ["id", "username", "name"],
     });
 
@@ -35,7 +16,7 @@ export async function fetchLatestTweets(username: string) {
     console.log("找到用户:", user.data.username);
 
     // 2. 获取用户最新推文
-    const tweets = await client.v2.userTimeline(user.data.id, {
+    const tweets = await twitterClientV2.userTimeline(user.data.id, {
       max_results: 5,
       "tweet.fields": ["created_at", "public_metrics"],
     });
